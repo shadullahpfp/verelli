@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-instrument-serif: "Instrument Serif", Georgia, serif;
+  --font-plus-jakarta-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-caveat: "Caveat", cursive;
+  --bg-pomelli-hero: #191E0B;
+  --bg-pomelli-dark: #11120E;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #191E0B;
+  color: #EDEFE6;
+  font-family: var(--font-plus-jakarta-sans);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* High-Grit Matte Felt / Cardboard Texture Canvas */
+.film-grain,
+.canvas-felt-grain {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 40;
+  opacity: 0.065;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='feltNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23feltNoise)'/%3E%3C/svg%3E");
+}
+
+/* Layer 3D Heavy Shadow System */
+.shadow-collage {
+  filter: drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.70)) drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.40));
+}
+
+.shadow-scrap {
+  filter: drop-shadow(0px 14px 22px rgba(0, 0, 0, 0.65)) drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.35));
+}
+
+.shadow-pin {
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.70));
+}
+
+.custom-shadow {
+  filter: drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.70)) drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.40));
+}
+
+/* Tactile hand-cut borders */
+.border-handcut {
+  border-style: solid;
+  border-width: 1px;
+  border-top-color: #3A3D34;
+  border-bottom-color: #0E1206;
+  border-left-color: #2E3029;
+  border-right-color: #2E3029;
+}
+
+.border-handcut-paper {
+  border-style: solid;
+  border-width: 1px;
+  border-top-color: #FAF8F2;
+  border-bottom-color: #C8C2B3;
+  border-left-color: #E6E1D4;
+  border-right-color: #DDD8CB;
+}
+
+/* Natural paper edge styles */
+.paper-edge {
+  border: 0.5px solid rgba(209, 205, 188, 0.15);
+}
+
+.paper-edge-dark {
+  border: 0.5px solid #2E3029;
+}
+
+.paper-torn {
+  box-shadow: inset 0 0 0 1px rgba(209, 205, 188, 0.12);
+}
+
+/* Washi tape & paper textures */
+.washi-tape {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+/* Custom ambient radial glows */
+.glow-ambient-olive {
+  background: radial-gradient(
+    circle at center,
+    rgba(163, 184, 99, 0.22) 0%,
+    rgba(17, 18, 14, 0) 70%
+  );
+}
+
+.glow-hero-core {
+  background: radial-gradient(
+    ellipse at 50% 35%,
+    rgba(184, 196, 104, 0.16) 0%,
+    rgba(25, 30, 11, 0) 65%
+  );
+}
+
+.scalloped-cloud {
+  clip-path: polygon(
+    20% 0%, 80% 0%, 100% 20%, 100% 80%,
+    80% 100%, 20% 100%, 0% 80%, 0% 20%
+  );
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #11120E;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2E3029;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #44473E;
+}
+

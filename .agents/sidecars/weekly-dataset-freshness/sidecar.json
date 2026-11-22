@@ -1,0 +1,24 @@
+{
+  "builtin": "schedule",
+  "args": [
+    "CRON_TZ=UTC 0 9 * * 1",
+    "agentapi",
+    "new-conversation",
+    "--",
+    "Perform the weekly dataset freshness audit for verelli.lol: (1) Inspect Startups.RIP for newly published YC graveyard post-mortems and extract failure taxonomy. (2) Check TrustMRR for breakout verified micro-SaaS revenue updates. (3) Validate vector embedding status in Supabase and ensure zero-hallucination similarity threshold (0.65) holds. (4) Summarize dataset count changes in docs/memory.md."
+  ],
+  "restart_policy": "always",
+  "display_name": "Weekly Dataset Freshness Audit (Startups.RIP & TrustMRR)",
+  "description": "Every Monday at 9:00 AM UTC, audits Startups.RIP and TrustMRR dataset freshness, validates vector embeddings, and logs status.",
+  "agent_permissions": {
+    "workspace_uris": [
+      "file:///Users/apple/Desktop/Verelli"
+    ],
+    "access_grants": [
+      "command(npm run)",
+      "command(python3)",
+      "read_file(/Users/apple/Desktop/Verelli/docs)",
+      "write_file(/Users/apple/Desktop/Verelli/docs/memory.md)"
+    ]
+  }
+}

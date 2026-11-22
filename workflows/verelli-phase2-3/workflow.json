@@ -1,0 +1,17 @@
+{
+  "name": "verelli-phase2-3",
+  "display_name": "Verelli.lol Phase 2 & 3 Parallel Workflow",
+  "description": "Orchestrates 3 concurrent agents across Frontend (apps/web Onboarding Flow), Backend (apps/api FastAPI & Datasets), and Database (supabase/ pgvector & RPC).",
+  "version": "1.0.0",
+  "entrypoint": "workflow.py",
+  "args": {
+    "type": "object",
+    "properties": {
+      "mock_mode": {
+        "type": "boolean",
+        "default": true,
+        "description": "Run with local mock fixtures and deterministic vectors"
+      }
+    }
+  }
+}
