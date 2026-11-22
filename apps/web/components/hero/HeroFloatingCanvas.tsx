@@ -30,6 +30,9 @@ export default function HeroFloatingCanvas() {
 
   return (
     <section className="relative w-full h-screen min-h-[760px] max-h-[960px] flex flex-col items-center justify-center overflow-hidden bg-[#191E0B] pt-8 pb-16 px-4 select-none">
+      {/* Subtle camera film-grain noise overlay (scoped to Hero only) */}
+      <div className="film-grain pointer-events-none" aria-hidden="true" />
+
       {/* Background vignette & ambient olive-green lighting spots */}
       <div
         className="absolute inset-0 pointer-events-none z-0"

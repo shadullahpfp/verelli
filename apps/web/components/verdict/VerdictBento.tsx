@@ -102,13 +102,13 @@ export default function VerdictBento({
   };
 
   return (
-    <div className="min-h-screen bg-[#11120E] text-[#EDEFE6] relative overflow-x-hidden selection:bg-[#B8C468] selection:text-[#14180A] pb-24">
-      {/* Top Ambient Radial Olive Glow */}
+    <div className="min-h-screen bg-[#11120E] text-[#F3F4EF] relative overflow-x-hidden selection:bg-[#B8C468] selection:text-[#14180A] pb-24">
+      {/* Top Ambient Glow matching ?step=welcome */}
       <div
-        className="fixed w-[900px] h-[550px] rounded-full blur-[160px] pointer-events-none -translate-x-1/2 top-0 left-1/2 z-0"
+        className="fixed inset-0 pointer-events-none z-0"
         style={{
           background:
-            "radial-gradient(circle, rgba(163, 184, 99, 0.16) 0%, rgba(17, 18, 14, 0) 70%)",
+            "radial-gradient(ellipse 55% 30% at 50% 0%, rgba(163, 184, 99, 0.10) 0%, rgba(17, 18, 14, 0) 75%)",
         }}
       />
 
@@ -120,7 +120,7 @@ export default function VerdictBento({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
-            className="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-[#181916] border border-[#B8C468] text-[#EDEFE6] shadow-[0_12px_36px_rgba(0,0,0,0.8)] px-5 py-2.5 rounded-full flex items-center gap-2 text-xs font-medium"
+            className="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-[#181916] border border-[#B8C468] text-[#F3F4EF] shadow-[0_12px_36px_rgba(0,0,0,0.8)] px-5 py-2.5 rounded-full flex items-center gap-2 text-xs font-medium"
           >
             <Check
               width={14}
@@ -136,12 +136,12 @@ export default function VerdictBento({
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         {/* Top Header Bar */}
         <header className="flex flex-col sm:flex-row items-center justify-between gap-4 py-4 mb-6 border-b border-[#23251F]">
-          {/* Left: Verelli Labs Flask Logo */}
+          {/* Left: Verelli Labs Flask Logo & Verdict Tag */}
           <Link
             href="/"
             className="flex items-center gap-2.5 group hover:opacity-90 transition-opacity"
           >
-            <div className="w-8 h-8 rounded-full bg-[#181916] border border-[#363E1D] flex items-center justify-center group-hover:border-[#B8C468] transition-colors">
+            <div className="w-8 h-8 rounded-full bg-[#181916] border border-[#2A2C26] flex items-center justify-center group-hover:border-[#B8C468] transition-colors">
               <FlaskConical
                 width={16}
                 height={16}
@@ -149,15 +149,12 @@ export default function VerdictBento({
                 className="text-[#B8C468] stroke-[2]"
               />
             </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-semibold tracking-tight text-[#EDEFE6] flex items-center gap-1.5">
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-semibold tracking-tight text-[#F3F4EF]">
                 verelli.lol
-                <span className="text-[10px] font-mono uppercase bg-[#1B200E] text-[#C5D37A] border border-[#363E1D] px-1.5 py-0.2 rounded">
-                  Verdict
-                </span>
               </span>
-              <span className="text-[11px] text-[#80979A]">
-                Google Labs Pomelli Architecture
+              <span className="text-[10px] font-mono uppercase tracking-wider bg-[#1B200E] text-[#C5D37A] border border-[#363E1D] px-2 py-0.5 rounded-full">
+                VERDICT
               </span>
             </div>
           </Link>
@@ -216,7 +213,7 @@ export default function VerdictBento({
         {/* ============================================================ */}
         {/* ROW 1: Executive Verdict Hero Card                           */}
         {/* ============================================================ */}
-        <section className="bg-[#181916] border border-[#2E3029] rounded-3xl p-6 sm:p-8 mb-8 shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
+        <section className="bg-[#181916] border border-[#2A2C26] rounded-3xl p-6 sm:p-8 mb-8 shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left Col (8 cols on lg): Idea & Brutal Reality Check */}
             <div className="lg:col-span-8 flex flex-col justify-between">
@@ -240,12 +237,12 @@ export default function VerdictBento({
                 </div>
 
                 {/* Submitted Idea Text in Italic Instrument Serif */}
-                <h1 className="font-serif italic text-2xl sm:text-3xl lg:text-[34px] leading-[1.18] text-[#EDEFE6] tracking-[-0.01em]">
+                <h1 className="font-serif italic text-2xl sm:text-3xl lg:text-[34px] leading-[1.18] text-[#F3F4EF] tracking-[-0.01em]">
                   &ldquo;{idea_text}&rdquo;
                 </h1>
 
                 {/* Brutal Executive Reality Check */}
-                <div className="mt-5 p-4 rounded-2xl bg-[#11120E] border border-[#2E3029]/80">
+                <div className="mt-5 p-4 sm:p-5 rounded-2xl bg-[#11120F] border border-[#23251F]">
                   <div className="flex items-start gap-2.5">
                     <Flame
                       width={16}
@@ -254,7 +251,7 @@ export default function VerdictBento({
                       className="text-[#D3B79C] shrink-0 mt-0.5"
                     />
                     <p className="text-sm leading-relaxed text-[#D2D5CA] font-sans">
-                      <strong className="text-[#EDEFE6] font-medium mr-1.5">
+                      <strong className="text-[#F3F4EF] font-medium mr-1.5">
                         Executive Reality Check:
                       </strong>
                       {verdict.executive_verdict}
@@ -264,21 +261,32 @@ export default function VerdictBento({
               </div>
             </div>
 
-            {/* Right Col (4 cols on lg): Circular SVG Survival Gauge */}
-            <div className="lg:col-span-4 flex flex-col items-center justify-center p-4 bg-[#141512] border border-[#262822] rounded-2xl">
-              <SurvivalScoreGauge
-                score={verdict.survival_score}
-                riskLevel={verdict.risk_level}
+            {/* Right Col (4 cols on lg): Circular SVG Survival Gauge with Soft Radial Glow */}
+            <div className="lg:col-span-4 flex flex-col items-center justify-center p-6 bg-[#11120F] border border-[#23251F] rounded-2xl relative overflow-hidden">
+              {/* Subtle Olive Radial Glow strictly behind circular gauge matching ?step=welcome */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    "radial-gradient(circle at center, rgba(163, 184, 99, 0.14) 0%, rgba(17, 18, 15, 0) 70%)",
+                }}
               />
-              <p className="text-[11px] font-mono text-[#80979A] text-center mt-3">
-                Calibrated against 1,740+ bankruptcies &amp; 12K+ Stripe feeds
-              </p>
+
+              <div className="relative z-10 flex flex-col items-center">
+                <SurvivalScoreGauge
+                  score={verdict.survival_score}
+                  riskLevel={verdict.risk_level}
+                />
+                <p className="text-[11px] font-mono text-[#80979A] text-center mt-3">
+                  Calibrated against 1,740+ bankruptcies &amp; 12K+ Stripe feeds
+                </p>
+              </div>
             </div>
           </div>
 
           {/* Zero-Hallucination Fallback Callout (if uncharted niche) */}
           {verdict.is_uncharted_niche && (
-            <div className="mt-6 p-5 rounded-2xl bg-[#171B20] border border-[#2F3942] text-xs">
+            <div className="mt-6 p-5 rounded-2xl bg-[#11120F] border border-[#23251F] text-xs">
               <div className="flex items-start gap-3">
                 <ShieldAlert
                   width={18}
@@ -287,7 +295,7 @@ export default function VerdictBento({
                   className="text-[#80979A] shrink-0 mt-0.5"
                 />
                 <div>
-                  <h4 className="font-semibold text-[#EDEFE6] text-sm">
+                  <h4 className="font-semibold text-[#F3F4EF] text-sm">
                     Zero-Hallucination Fallback Active
                   </h4>
                   <p className="mt-1 text-[#9A9D93] leading-relaxed">
@@ -316,10 +324,10 @@ export default function VerdictBento({
         {/* ============================================================ */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           {/* Left Column: Graveyard Twins (Startups.RIP) */}
-          <div className="bg-[#181916] border border-[#2E3029] rounded-3xl p-6 flex flex-col">
-            <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#242620]">
+          <div className="bg-[#181916] border border-[#2A2C26] rounded-3xl p-6 flex flex-col">
+            <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#23251F]">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-xl bg-[#242620] border border-[#2E3029] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-xl bg-[#11120F] border border-[#23251F] flex items-center justify-center">
                   <Skull
                     width={16}
                     height={16}
@@ -328,7 +336,7 @@ export default function VerdictBento({
                   />
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold text-[#EDEFE6] tracking-tight">
+                  <h3 className="text-base font-semibold text-[#F3F4EF] tracking-tight">
                     Startups.RIP Graveyard Twins
                   </h3>
                   <p className="text-[11px] text-[#80979A]">
@@ -336,30 +344,30 @@ export default function VerdictBento({
                   </p>
                 </div>
               </div>
-              <span className="text-[11px] font-mono text-[#F87171] bg-[#2A1616] border border-[#F87171]/30 px-2 py-0.5 rounded-full">
+              <span className="text-[11px] font-mono text-[#F87171] bg-[#1A1212] border border-[#F87171]/30 px-2.5 py-0.5 rounded-full">
                 {verdict.top_dead_twins.length} Matched
               </span>
             </div>
 
             <div className="space-y-4 flex-1">
               {verdict.top_dead_twins.length === 0 ? (
-                <div className="p-6 rounded-2xl bg-[#242620] border border-[#2E3029] text-center text-xs text-[#80979A]">
+                <div className="p-6 rounded-2xl bg-[#11120F] border border-[#23251F] text-center text-xs text-[#80979A]">
                   No direct graveyard twins above 65% cosine similarity.
                 </div>
               ) : (
                 verdict.top_dead_twins.map((twin, idx) => (
                   <div
                     key={idx}
-                    className="bg-[#242620] border border-[#2E3029] hover:border-[#3A3D34] rounded-2xl p-4 sm:p-5 transition-colors"
+                    className="bg-[#11120F] border border-[#23251F] hover:border-[#2A2C26] rounded-2xl p-5 transition-colors"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div>
                         <div className="flex items-center gap-2 flex-wrap">
-                          <span className="font-semibold text-[15px] text-[#EDEFE6]">
+                          <span className="font-semibold text-[15px] text-[#F3F4EF]">
                             {twin.name}
                           </span>
                           {twin.yc_batch && (
-                            <span className="text-[10px] font-mono bg-[#181916] text-[#A6AC96] border border-[#2E3029] px-2 py-0.5 rounded">
+                            <span className="text-[10px] font-mono bg-[#181916] text-[#A6AC96] border border-[#23251F] px-2 py-0.5 rounded">
                               {twin.yc_batch}
                             </span>
                           )}
@@ -372,24 +380,24 @@ export default function VerdictBento({
                         </p>
                       </div>
 
-                      <span className="text-[11px] font-mono text-[#80979A] bg-[#181916] border border-[#2E3029] px-2 py-0.5 rounded shrink-0">
+                      <span className="text-[11px] font-mono text-[#80979A] bg-[#181916] border border-[#23251F] px-2 py-0.5 rounded shrink-0">
                         {Math.round(twin.similarity_score * 100)}% match
                       </span>
                     </div>
 
                     {/* Terracotta Fatal Flaw Pill */}
-                    <div className="mt-3 p-2.5 rounded-xl bg-[#2E1B1B] border border-[#F87171]/30 text-xs text-[#FCA5A5] leading-relaxed">
+                    <div className="mt-3 p-3 rounded-xl bg-[#1A1212] border border-[#F87171]/25 text-xs text-[#FCA5A5] leading-relaxed">
                       <strong className="text-[#F87171] block mb-0.5 font-medium">
                         Fatal Cause of Death:
                       </strong>
                       {twin.fatal_flaw}
                     </div>
 
-                    {/* Founder Post-Mortem Quote */}
+                    {/* Founder Post-Mortem Quote with leading-relaxed & p-4 */}
                     {twin.post_mortem_quote && (
-                      <p className="mt-3 text-[12px] italic font-serif text-[#C5D0D6] border-l-2 border-[#5A4D3B] pl-3 py-0.5 leading-relaxed">
+                      <div className="mt-3.5 p-4 rounded-xl bg-[#181916] border border-[#23251F] border-l-2 border-l-[#D3B79C]/60 text-[12.5px] italic font-serif text-[#C5D0D6] leading-relaxed">
                         &ldquo;{twin.post_mortem_quote}&rdquo;
-                      </p>
+                      </div>
                     )}
 
                     {twin.source_url && (
@@ -416,10 +424,10 @@ export default function VerdictBento({
           </div>
 
           {/* Right Column: Cashflow Twins (TrustMRR) */}
-          <div className="bg-[#181916] border border-[#2E3029] rounded-3xl p-6 flex flex-col">
-            <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#242620]">
+          <div className="bg-[#181916] border border-[#2A2C26] rounded-3xl p-6 flex flex-col">
+            <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#23251F]">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-xl bg-[#242620] border border-[#2E3029] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-xl bg-[#11120F] border border-[#23251F] flex items-center justify-center">
                   <TrendingUp
                     width={16}
                     height={16}
@@ -428,7 +436,7 @@ export default function VerdictBento({
                   />
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold text-[#EDEFE6] tracking-tight">
+                  <h3 className="text-base font-semibold text-[#F3F4EF] tracking-tight">
                     TrustMRR Cashflow Twins
                   </h3>
                   <p className="text-[11px] text-[#80979A]">
@@ -436,26 +444,26 @@ export default function VerdictBento({
                   </p>
                 </div>
               </div>
-              <span className="text-[11px] font-mono text-[#4ADE80] bg-[#122416] border border-[#4ADE80]/30 px-2 py-0.5 rounded-full">
+              <span className="text-[11px] font-mono text-[#4ADE80] bg-[#122416] border border-[#4ADE80]/30 px-2.5 py-0.5 rounded-full">
                 ● Live Stripe Feeds
               </span>
             </div>
 
             <div className="space-y-4 flex-1">
               {verdict.top_cashflow_twins.length === 0 ? (
-                <div className="p-6 rounded-2xl bg-[#242620] border border-[#2E3029] text-center text-xs text-[#80979A]">
+                <div className="p-6 rounded-2xl bg-[#11120F] border border-[#23251F] text-center text-xs text-[#80979A]">
                   No direct cashflow twins above 65% cosine similarity.
                 </div>
               ) : (
                 verdict.top_cashflow_twins.map((twin, idx) => (
                   <div
                     key={idx}
-                    className="bg-[#242620] border border-[#2E3029] hover:border-[#3A3D34] rounded-2xl p-4 sm:p-5 transition-colors"
+                    className="bg-[#11120F] border border-[#23251F] hover:border-[#2A2C26] rounded-2xl p-5 transition-colors"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div>
                         <div className="flex items-center gap-2 flex-wrap">
-                          <span className="font-semibold text-[15px] text-[#EDEFE6]">
+                          <span className="font-semibold text-[15px] text-[#F3F4EF]">
                             {twin.name}
                           </span>
                           <span className="font-serif italic text-lg text-[#4ADE80] font-normal">
@@ -468,7 +476,7 @@ export default function VerdictBento({
                         </p>
                       </div>
 
-                      <span className="text-[11px] font-mono text-[#80979A] bg-[#181916] border border-[#2E3029] px-2 py-0.5 rounded shrink-0">
+                      <span className="text-[11px] font-mono text-[#80979A] bg-[#181916] border border-[#23251F] px-2 py-0.5 rounded shrink-0">
                         {Math.round(twin.similarity_score * 100)}% match
                       </span>
                     </div>
@@ -484,7 +492,7 @@ export default function VerdictBento({
                     </div>
 
                     {/* Acquisition Wedge */}
-                    <div className="mt-3 p-2.5 rounded-xl bg-[#181916] border border-[#2E3029] text-xs text-[#D2D5CA] leading-relaxed">
+                    <div className="mt-3 p-3.5 rounded-xl bg-[#181916] border border-[#23251F] text-xs text-[#D2D5CA] leading-relaxed">
                       <span className="text-[#80979A] font-mono text-[10px] uppercase block mb-0.5">
                         Winning Acquisition Wedge:
                       </span>
@@ -518,8 +526,8 @@ export default function VerdictBento({
         {/* ============================================================ */}
         {/* ROW 3: 48-Hour Zero-Code Validation Playbook                 */}
         {/* ============================================================ */}
-        <section className="bg-[#181916] border border-[#2E3029] rounded-3xl p-6 sm:p-8 mb-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-[#242620]">
+        <section className="bg-[#181916] border border-[#2A2C26] rounded-3xl p-6 sm:p-8 mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-[#23251F]">
             <div>
               <div className="flex items-center gap-2 mb-1">
                 <Zap
@@ -528,7 +536,7 @@ export default function VerdictBento({
                   style={{ width: 18, height: 18 }}
                   className="text-[#B8C468] stroke-[2]"
                 />
-                <h2 className="text-xl sm:text-2xl font-serif italic text-[#EDEFE6]">
+                <h2 className="text-xl sm:text-2xl font-serif italic text-[#F3F4EF]">
                   48-Hour Zero-Code Validation Playbook
                 </h2>
               </div>
@@ -541,7 +549,7 @@ export default function VerdictBento({
             <button
               type="button"
               onClick={handleExportBook}
-              className="inline-flex items-center gap-2 bg-[#242620] hover:bg-[#2F322A] text-[#EDEFE6] border border-[#3A3D34] px-4 py-2 rounded-full text-xs font-medium transition-colors shrink-0"
+              className="inline-flex items-center gap-2 bg-[#11120F] hover:bg-[#181916] text-[#F3F4EF] border border-[#2A2C26] px-4 py-2 rounded-full text-xs font-medium transition-colors shrink-0"
             >
               <FileText
                 width={14}
@@ -553,7 +561,7 @@ export default function VerdictBento({
           </div>
 
           {/* Wedge Angle Banner */}
-          <div className="mb-8 p-5 rounded-2xl bg-[#1B200E] border border-[#363E1D]">
+          <div className="mb-8 p-5 rounded-2xl bg-[#11120F] border border-[#363E1D]">
             <div className="flex items-start gap-3">
               <Target
                 width={18}
@@ -565,7 +573,7 @@ export default function VerdictBento({
                 <span className="text-[10px] font-mono uppercase tracking-widest text-[#B8C468] block mb-1">
                   Counter-Intuitive Wedge Strategy
                 </span>
-                <p className="text-sm font-sans text-[#EDEFE6] leading-relaxed">
+                <p className="text-sm font-sans text-[#F3F4EF] leading-relaxed">
                   {verdict.wedge_differentiation_angle}
                 </p>
               </div>
@@ -577,7 +585,7 @@ export default function VerdictBento({
             {verdict.validation_playbook_48h.map((step, idx) => (
               <div
                 key={idx}
-                className="bg-[#242620] border border-[#2E3029] rounded-2xl p-5 flex flex-col justify-between"
+                className="bg-[#11120F] border border-[#23251F] rounded-2xl p-5 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
@@ -589,7 +597,7 @@ export default function VerdictBento({
                     </span>
                   </div>
 
-                  <h4 className="text-[15px] font-semibold text-[#EDEFE6] leading-snug mb-2">
+                  <h4 className="text-[15px] font-semibold text-[#F3F4EF] leading-snug mb-2">
                     {step.title}
                   </h4>
 
@@ -599,11 +607,11 @@ export default function VerdictBento({
                 </div>
 
                 {/* Tactical Deliverable */}
-                <div className="mt-5 pt-3 border-t border-[#2E3029]/80">
+                <div className="mt-5 pt-3 border-t border-[#23251F]">
                   <span className="text-[10px] font-mono uppercase text-[#80979A] block mb-1">
                     Deliverable:
                   </span>
-                  <div className="p-2.5 rounded-xl bg-[#181916] border border-[#2E3029] text-[11.5px] text-[#D8E29A] font-mono leading-relaxed">
+                  <div className="p-3 rounded-xl bg-[#181916] border border-[#23251F] text-[11.5px] text-[#D8E29A] font-mono leading-relaxed">
                     {step.tactical_deliverable}
                   </div>
                 </div>
@@ -614,7 +622,7 @@ export default function VerdictBento({
           {/* Deadly Pitfalls to Avoid Callout */}
           {verdict.deadly_pitfalls_to_avoid &&
             verdict.deadly_pitfalls_to_avoid.length > 0 && (
-              <div className="mt-8 pt-6 border-t border-[#242620]">
+              <div className="mt-8 pt-6 border-t border-[#23251F]">
                 <h4 className="text-xs font-mono uppercase text-[#F87171] tracking-wider mb-3 flex items-center gap-1.5">
                   <AlertOctagon
                     width={14}
@@ -627,7 +635,7 @@ export default function VerdictBento({
                   {verdict.deadly_pitfalls_to_avoid.map((pitfall, i) => (
                     <div
                       key={i}
-                      className="p-3.5 rounded-xl bg-[#1C1414] border border-[#F87171]/25 text-xs text-[#E8C0C0] leading-relaxed flex items-start gap-2"
+                      className="p-3.5 rounded-xl bg-[#11120F] border border-[#F87171]/20 text-xs text-[#E8C0C0] leading-relaxed flex items-start gap-2"
                     >
                       <span className="text-[#F87171] font-mono mt-0.5">•</span>
                       <span>{pitfall}</span>
@@ -639,10 +647,9 @@ export default function VerdictBento({
         </section>
 
         {/* Minimal Footer */}
-        <footer className="text-center pt-8 pb-12 border-t border-[#1C1D18] text-xs text-[#686B60]">
+        <footer className="text-center pt-8 pb-12 border-t border-[#23251F] text-xs text-[#686B60]">
           <p>
-            verelli.lol — Pre-Build Quantitative Feasibility Engine. Built with
-            1:1 Google Labs Pomelli Aesthetic.
+            verelli.lol — Pre-Build Quantitative Feasibility Engine.
           </p>
           <p className="mt-1">
             Data sourced from Startups.RIP (1,740+ post-mortems) and TrustMRR

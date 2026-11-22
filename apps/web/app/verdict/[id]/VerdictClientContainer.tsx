@@ -84,13 +84,13 @@ export default function VerdictClientContainer({
   // Loading State
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#11120E] text-[#EDEFE6] flex flex-col items-center justify-center p-6 relative overflow-hidden select-none">
-        {/* Soft Olive Glow */}
+      <div className="min-h-screen bg-[#11120E] text-[#F3F4EF] flex flex-col items-center justify-center p-6 relative overflow-hidden select-none">
+        {/* Soft Clean Ambient Glow matching ?step=welcome */}
         <div
-          className="fixed w-[600px] h-[400px] rounded-full blur-[140px] pointer-events-none -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 z-0 animate-pulseSlow"
+          className="fixed inset-0 pointer-events-none z-0"
           style={{
             background:
-              "radial-gradient(circle, rgba(163, 184, 99, 0.22) 0%, rgba(17, 18, 14, 0) 70%)",
+              "radial-gradient(ellipse 55% 30% at 50% 0%, rgba(163, 184, 99, 0.10) 0%, rgba(17, 18, 14, 0) 75%)",
           }}
         />
 

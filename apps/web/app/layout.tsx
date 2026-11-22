@@ -43,8 +43,6 @@ export default function RootLayout({
       className={`${instrumentSerif.variable} ${plusJakartaSans.variable} ${caveat.variable}`}
     >
       <body className="bg-pomelli-hero text-[#EDEFE6] min-h-screen antialiased selection:bg-pomelli-lime selection:text-[#14180A]">
-        {/* Subtle camera film-grain noise overlay */}
-        <div className="film-grain" aria-hidden="true" />
         {children}
       </body>
     </html>

@@ -86,7 +86,7 @@
 
 ## 3. [Current Active File]
 
-- `apps/web/app/verdict/[id]/page.tsx` & `apps/web/components/verdict/VerdictBento.tsx`
+- `apps/web/app/verdict/[id]/page.tsx`, `apps/web/app/verdict/[id]/VerdictClientContainer.tsx`, & `apps/web/components/verdict/VerdictBento.tsx`
 
 ---
 
@@ -118,6 +118,7 @@
 | **ADR-015** | **Deterministic Offline Vector Matching & Strict 0.65 Boundary Enforcement** | Built `EmbeddingService` with OpenAI `text-embedding-3-small` and deterministic mock vector fallback using word-boundary semantic clusters, paired with `VectorMatcherService` enforcing strict `< 0.65` zero-hallucination boundary and uncharted niche diagnostic. | 2026-11-22 |
 | **ADR-016** | **Client-Side Session Caching & Direct-URL Resilience for Verdict Workspace** | Implemented dual-layer persistence for Screen 5 (`/verdict/[id]`): prioritizes in-memory `sessionStorage` (`verelli_verdict_${id}`) to ensure zero-latency client transitions from Stage 1 Idea Input, seamlessly falls back to `GET /api/v1/verdict/{id}` on direct link opens, and provides structured sample fallbacks if the API backend is unreachable. | 2026-11-22 |
 | **ADR-017** | **Permanent Build vs Dev Directory Isolation (`distDir`)** | Added `distDir: process.env.NEXT_DIST_DIR || ".next"` in `next.config.ts` and configured `npm run build` to use `NEXT_DIST_DIR=.next_build`. Completely prevents `next build` from overwriting the active dev server's `.next` cache, eliminating stylesheet 404s and chunk hash collisions permanently. | 2026-11-22 |
+| **ADR-018** | **Matte Obsidian Palette & Global Film-Grain Scoping (`/verdict/[id]`)** | Removed global `feTurbulence` film-grain overlay from `layout.tsx` and scoped it strictly inside `HeroFloatingCanvas.tsx` to eliminate noise/speckling from onboarding modals and `/verdict/[id]`. Standardized the verdict workspace on the clean `?step=welcome` 2-tier matte obsidian system: `#11120E` canvas with top-center radial olive glow (`rgba(163, 184, 99, 0.10)`), `#181916` primary bento containers with `#2A2C26` borders, and `#11120F` recessed inner sub-cards with `#23251F` borders. Retained soft radial olive glow (`0.14` opacity) specifically behind the Survival Score circular gauge. | 2026-11-22 |
 
 ---
 
