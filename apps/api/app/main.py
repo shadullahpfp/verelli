@@ -50,9 +50,18 @@ app = FastAPI(
 # -----------------------------------------------------------------------------
 # CORS Middleware Configuration
 # -----------------------------------------------------------------------------
+# Mandatory allowed origins for frontend local development & production deployment
+REQUIRED_CORS_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "https://verelli.lol",
+]
+# Combine settings.CORS_ORIGINS with required origins, preserving uniqueness
+effective_cors = list(dict.fromkeys(list(settings.CORS_ORIGINS) + REQUIRED_CORS_ORIGINS))
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.CORS_ORIGINS,
+    allow_origins=effective_cors,
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allow_headers=["*"],

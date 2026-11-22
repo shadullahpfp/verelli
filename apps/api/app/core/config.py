@@ -53,18 +53,24 @@ class Settings(BaseSettings):
     # Database & Third-Party Vector Provider Credentials
     SUPABASE_URL: Optional[str] = None
     SUPABASE_KEY: Optional[str] = None
+    SUPABASE_SERVICE_ROLE_KEY: Optional[str] = None
     OPENAI_API_KEY: Optional[str] = None
     GEMINI_API_KEY: Optional[str] = None
 
     # Zero-Hallucination Semantic Boundary
     SIMILARITY_THRESHOLD: float = 0.65
 
-    # CORS Configuration
+    # CORS Configuration - Explicitly allows local dev and production domains
     CORS_ORIGINS: List[str] = [
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "https://verelli.lol",
     ]
+
+    @property
+    def effective_supabase_key(self) -> Optional[str]:
+        """Returns service role key if available, otherwise anonymous public key."""
+        return self.SUPABASE_SERVICE_ROLE_KEY or self.SUPABASE_KEY
 
     # Model Configuration
     model_config = SettingsConfigDict(

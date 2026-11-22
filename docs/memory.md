@@ -5,7 +5,7 @@
 ## 1. Project Identity & Status
 
 - **Project:** verelli.lol (AI Pre-Build Startup Idea Validator)
-- **Status:** **Phase 1 & Phase 2 COMPLETED** (Pomelli Onboarding Journey: ThingsToKnowModal, StayConnectedModal, OnboardingFourGrid, IdeaInputCard, useStepNavigation Query-Param State Orchestrator, Zero Build Errors)
+- **Status:** **Phase 1, Phase 2, Phase 3 & Phase 4 COMPLETED** (Full-Stack Pre-Build Feasibility Engine: Pomelli Hero Canvas, Onboarding Modals Flow, Supabase pgvector HNSW Indexing, FastAPI Vector Matching & LLM Synthesis Engine, IdeaInputCard Wired to API with Analyzing Ticker, Screen 5 Verdict Bento Workspace at `/verdict/[id]`, Zero Build & Lint Errors)
 - **Architecture:** Monorepo (`apps/web` Next.js 15 App Router + `apps/api` FastAPI + Supabase `pgvector`)
 - **Visual Design:** 1:1 Google Labs Pomelli Aesthetic with Tactile 3D Scrap-Book Collage (Deep Botanical Olive `#191E0B`, Obsidian `#11120E`, Matte Charcoal `#252622` / `#181916`, Pistachio Lime `#B8C468`, Instrument Serif Italic Display Typography, Plus Jakarta Sans Body, Custom SVG explicit dimension controls)
 
@@ -44,72 +44,56 @@
 
 - [x] **Phase 2 COMPLETED — Pomelli Onboarding Journey & Query-Param Modals (`apps/web`):**
   - `apps/web/hooks/useStepNavigation.ts`: URL query-param state manager handling `?step=terms`, `?step=welcome`, `?step=input`, and `/` using Next.js `useSearchParams`, `useRouter`, and `usePathname`.
-  - `apps/web/components/modals/ThingsToKnowModal.tsx`:
-    - Screen 2 compliance modal with `#121210 / 80%` backdrop-blur-md, centered `#252622` charcoal card, `border 1px solid #3A3D34`, rounded-3xl.
-    - Instrument Serif italic heading *"Things to know before we begin"*.
-    - Sourced data transparency with olive-underlined links to `Startups.RIP` and `TrustMRR` data terms.
-    - Bottom-right actions: Plain text "Exit" (ghost text routing to `/`) and dark olive pill button "Agree & continue" (`#1B200E` with `#D8E29A` text, border `#363E1D`, routing to `?step=welcome`).
-  - `apps/web/components/modals/StayConnectedModal.tsx`:
-    - Screen 3A overlay on top of 4-step grid with `backdrop-blur-sm bg-black/50`.
-    - Custom square pistachio-lime checkboxes (`#B8C468`) for "Weekly Graveyard Post-Mortem Deconstructs" and "Verified Micro-SaaS Niche Revenue Alerts".
-    - Bottom-right actions: "Skip for now" ghost text and "Confirm" pistachio pill button (`#B8C468` with `#14180A` text).
-  - `apps/web/components/onboarding/StepCard.tsx` & `apps/web/components/onboarding/OnboardingFourGrid.tsx`:
-    - Screen 3B 4-step onboarding grid with small lime flask icon badge, italic Instrument Serif heading *"Welcome to Verelli.lol"*, and clean sans subtitle.
-    - 4 equal-height dark cards (`#181916`, `1px solid #2E3029`, rounded-3xl) with subtle top-left step numbers:
-      - Card 1: *Build your Idea Profile* (simulated typing preview with blinking lime cursor pill).
-      - Card 2: *Scan the Startup Graveyard* (skull badge, burned capital, and post-mortem snippet).
-      - Card 3: *Verify Live Niche MRR* (live Stripe MRR badge with subscriber count and sparklines).
-      - Card 4: *Create your Validation Book & 48h Plan* (circular SVG gauge preview & checklist).
-    - Inset bottom preview panels illuminated by soft radial olive glow (`radial-gradient(circle, rgba(163, 184, 99, 0.22) 0%, rgba(17, 18, 14, 0) 70%)`).
-    - Bottom center pistachio-lime pill button *"Let's go!"* (`#B8C468`, text `#14180A`, routing to `?step=input`).
-  - `apps/web/components/onboarding/IdeaInputCard.tsx`:
-    - Screen 4 focused startup idea input card (`#23251F`, `1px solid #44473E`, rounded-3xl, max-w-[680px]) floating over soft radial olive-sage ambient glow.
-    - Italic serif heading *"Enter your startup idea"*.
-    - Dark outlined input box (`#161713`, `border-[#5A5D52]`, focus ring `#B8C468`).
-    - Suggestion prompt chips for rapid testing.
-    - Dual bottom pill buttons: Left muted moss `#363E1D` (*"No website yet?"*) and right matte charcoal `#373835` (*"Continue"*), which dynamically turns `#B8C468` pistachio with `#14180A` text when input is non-empty.
+  - `apps/web/components/modals/ThingsToKnowModal.tsx`: Screen 2 compliance modal with `#121210 / 80%` backdrop-blur-md, centered `#252622` charcoal card, `border 1px solid #3A3D34`, rounded-3xl.
+  - `apps/web/components/modals/StayConnectedModal.tsx`: Screen 3A overlay on top of 4-step grid with `backdrop-blur-sm bg-black/50`.
+  - `apps/web/components/onboarding/StepCard.tsx` & `apps/web/components/onboarding/OnboardingFourGrid.tsx`: Screen 3B 4-step onboarding grid with small lime flask icon badge, italic Instrument Serif heading *"Welcome to Verelli.lol"*, and clean sans subtitle.
   - `apps/web/components/onboarding/OnboardingFlow.tsx`: Orchestrates AnimatePresence step transitions.
-  - `apps/web/app/page.tsx`: Integrated `OnboardingFlow` wrapped in `<Suspense fallback={null}>`.
-  - Verified static generation and production build (`npm --workspace=apps/web run build`) passing with 0 errors. Verified lint (`npm --workspace=apps/web run lint`) passing with 0 errors.
 
 - [x] **Phase 3 Database Infrastructure & pgvector Engine (`supabase/`) COMPLETED:**
   - Migrations, HNSW indexes, dual-search RPC enforcing `< 0.65` zero-hallucination boundary, and seed fixtures verified.
 
 - [x] **Phase 3 & 4 FastAPI Backend Intelligence Server (`apps/api`) COMPLETED:**
-  - `apps/api/requirements.txt`: Configured with `fastapi>=0.115.0`, `uvicorn[standard]>=0.30.0`, `pydantic>=2.7.0`, `pydantic-settings>=2.2.0`, `httpx>=0.27.0`, `numpy>=1.26.0`.
-  - `apps/api/app/main.py`: FastAPI entrypoint with CORS middleware for `http://localhost:3000`, custom Pydantic `RequestValidationError` & `StarletteHTTPException` handlers, and `/health` healthcheck endpoint.
-  - `apps/api/app/core/config.py`: Pydantic v2 Settings with auto-discovery for `SUPABASE_URL`, `SUPABASE_KEY`, `OPENAI_API_KEY`, `GEMINI_API_KEY`, `SIMILARITY_THRESHOLD=0.65`, and resilient runtime fallback.
-  - `apps/api/app/models/schemas.py`: Pydantic v2 contracts for `DeadTwinSummary`, `CashflowTwinSummary`, `ActionablePlaybookStep`, `VerdictReportSchema`, `ValidationRequest`, `ValidationResponse`, and `HealthResponse`.
-  - `apps/api/app/services/embedding_service.py`: 1536d vector generator interfacing with OpenAI `text-embedding-3-small` and deterministic mock vector generator fallback with exact word boundary keyword clustering.
-  - `apps/api/app/services/vector_matcher.py`: Dual pgvector query service supporting Supabase RPC functions and local fixture fallback, enforcing strict `< 0.65` cosine similarity zero-hallucination boundary and returning `is_uncharted_niche=True` with adjacent market warnings.
-  - `apps/api/app/services/synthesis_service.py`: Orchestrates vector matching + LLM synthesis (Gemini 1.5 Pro / GPT-4o) and calibrated heuristic synthesis engine (0-100 survival score, risk level, executive verdict, deadly pitfalls, wedge angle, 48h playbook).
-  - `apps/api/app/api/v1/endpoints/validate.py` & `apps/api/app/api/v1/router.py`: Exposes `POST /api/v1/validate` and `GET /api/v1/verdict/{id}`.
-  - `apps/api/fixtures/startups_rip_sample.json`: 12 detailed YC graveyard records across failure taxonomy (`high_cac`, `premature_scaling`, `no_pmf`, `regulatory_death`, `zero_retention`) with precomputed 1536d normalized embeddings.
-  - `apps/api/fixtures/trustmrr_sample.json`: 12 Stripe-verified profitable micro-SaaS records ($852K/mo verified MRR, 23.2K subscribers, ARPU, acquisition channels) with precomputed 1536d normalized embeddings.
-  - `apps/api/scripts/seed_mock_data.py`: Dataset audit script validating 100% vector dimensionality and demonstrating vector similarity matching and 0.65 boundary enforcement.
-  - `apps/api/scripts/test_endpoints.py`: Automated 7-step test suite verifying 100% pass rate across `/health`, `/`, `POST /api/v1/validate` (known niche), `GET /api/v1/verdict/{id}`, `POST /api/v1/validate` (uncharted niche), input validation 422, and missing ID 404.
-  - All Python files verified cleanly compiling with `python3 -m py_compile`.
+  - `apps/api/requirements.txt`: Configured with FastAPI, uvicorn, pydantic v2, pydantic-settings, httpx, numpy.
+  - `apps/api/app/main.py`: FastAPI entrypoint with CORS middleware for `http://localhost:3000`, `/health`, and error handlers.
+  - `apps/api/app/services/embedding_service.py` & `vector_matcher.py` & `synthesis_service.py`: 1536d vector generation, dual vector matcher with 0.65 boundary enforcement, and heuristic/LLM synthesis.
+  - `apps/api/app/api/v1/endpoints/validate.py`: Exposes `POST /api/v1/validate` and `GET /api/v1/verdict/{id}`.
+
+- [x] **Phase 4 COMPLETED — Frontend Integration & Screen 5 Verdict Bento Workspace (`apps/web`):**
+  - `apps/web/types/verdict.ts`: Strict TypeScript interfaces mirroring Pydantic v2 schemas (`DeadTwinSummary`, `CashflowTwinSummary`, `ActionablePlaybookStep`, `VerdictReportSchema`, `ValidationResponse`, `StoredVerdictData`).
+  - `apps/web/lib/sampleVerdict.ts`: Realistic verified benchmark dataset fallback for offline resilience.
+  - `apps/web/components/onboarding/IdeaInputCard.tsx`:
+    - Wired to `${API_URL}/api/v1/validate` using `process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"`.
+    - Full-screen Analyzing Overlay on `#11120E` canvas with pulsing soft radial olive glow (`radial-gradient(circle, rgba(163, 184, 99, 0.25) 0%, rgba(17, 18, 14, 0) 70%)`).
+    - Dynamic ticker cycling through the 4 validation steps every 1.4s with smooth Framer Motion transitions and progress indicators.
+    - Stores report in `sessionStorage` (`verelli_verdict_${report_id}`) and routes smoothly to `/verdict/${report_id}`.
+    - Gracefully handles network/API errors with an inline error banner, retry button, and offline demo fallback.
+  - `apps/web/components/verdict/SurvivalScoreGauge.tsx`:
+    - Circular SVG stroke gauge with animated stroke-dashoffset transition.
+    - Large italic `Instrument Serif` percentage score (0–100%) and dynamic color indicator (`#4ADE80` for high potential, `#D3B79C` for contested, `#F87171` for critical risk).
+    - Explicit SVG `width={148} height={148} style={{ width: 148, height: 148 }}`.
+  - `apps/web/components/verdict/VerdictBento.tsx`:
+    - Canvas: Deep obsidian olive `#11120E` with top radial olive ambient glow (`rgba(163, 184, 99, 0.16)`).
+    - Top Header Bar: Verelli Labs flask logo (linking to `/`), "Validate another idea" muted moss pill (`#363E1D`, text `#C5D37A`, border `#4F5A2C`), and "Copy X Verdict Card" pistachio-lime pill (`#B8C468`, text `#14180A`) with momentary "Copied to clipboard! ✦" floating toast.
+    - Row 1 — Executive Verdict Hero Card (`#181916`, rounded-3xl, 1px solid `#2E3029`): Left submitted concept in italic `Instrument Serif` + risk tier badge + brutal executive reality check; Right circular SVG Survival Score gauge; Zero-hallucination banner for `< 0.65` cosine similarity uncharted niches.
+    - Row 2 — Split Bento: Left Column Startups.RIP Graveyard Twins with capital burned, terracotta fatal flaw pills (`#F87171`), post-mortem quotes, and vector similarity badges; Right Column TrustMRR Cashflow Twins with Stripe-verified MRR in `#4ADE80`, active subscribers, pricing model pills, and winning acquisition wedges.
+    - Row 3 — 48-Hour Zero-Code Validation Playbook: 3-step actionable sprint cards (Fake-Door Wedge, Distribution Channel, Kill/Go Metric), Counter-Intuitive Wedge Strategy banner, Deadly Pitfalls callouts, and "Export Validation Book (PDF)" action.
+  - `apps/web/app/verdict/[id]/page.tsx` & `apps/web/app/verdict/[id]/VerdictClientContainer.tsx`:
+    - Dynamic route handling Next.js 15 async `params`.
+    - Resilient direct-URL loading: reads from `sessionStorage`, fetches from API endpoint `${API_URL}/api/v1/verdict/${id}`, or falls back to benchmark sample if offline.
+    - Production build (`npm --workspace=apps/web run build`) and lint (`npm --workspace=apps/web run lint`) verified with **0 errors and 0 warnings**.
 
 ---
 
 ## 3. [Current Active File]
 
-- `apps/web/components/onboarding/OnboardingFlow.tsx` & `apps/web/app/page.tsx`
+- `apps/web/app/verdict/[id]/page.tsx` & `apps/web/components/verdict/VerdictBento.tsx`
 
 ---
 
-## 4. [Next Up in Phase 3 & 4]
+## 4. [Next Up]
 
-According to `docs/phases.md`, the next upcoming engineering tasks are:
-1. **FastAPI Engine (`apps/api`):**
-   - Connect FastAPI validation endpoint (`/api/v1/validate`) to Supabase `pgvector` dual RPC (`search_twins`).
-   - Implement embedding pipeline and structured Gemini/GPT-4o LLM synthesis service.
-2. **Screen 5: The verelli.lol Verdict Bento Workspace (`/verdict/[id]`):**
-   - 4-card asymmetric Bento layout matching Pomelli aesthetic:
-     - Card 1: Animated SVG Survival Gauge (`0-100%`) with risk level badge.
-     - Card 2: Top 3 Dead Twins cards with burned capital and highlighted fatal flaw quotes.
-     - Card 3: Top 3 Cashflow Twins cards with live Stripe MRR, ARPU, and acquisition channels.
-     - Card 4: 48-Hour Validation Playbook with actionable hourly sprints and export button.
+- End-to-end user acceptance testing across both local dev servers (`apps/web` on port 3000 + `apps/api` on port 8000).
+- Production deployment preparation (Vercel Edge for Next.js 15 frontend + Cloud Run / Render for FastAPI backend).
 
 ---
 
@@ -132,6 +116,7 @@ According to `docs/phases.md`, the next upcoming engineering tasks are:
 | **ADR-013** | **Supabase pgvector HNSW Indexing & Dual RPC Architecture** | Implemented `20261122000000_verelli_vector_init.sql` with HNSW (`m=16, ef_construction=64`) for sub-15ms cosine similarity lookups. | 2026-11-22 |
 | **ADR-014** | **Next.js 15 Suspense Boundary for Query Navigation & Strict SVG Dimension Enforcement** | Wrapped `OnboardingFlow` within React `<Suspense fallback={null}>` in `page.tsx` for clean Next.js 15 App Router static generation. Enforced explicit `width`, `height`, and inline style attributes across all SVG/Lucide elements to strictly prevent layout blowouts per `.agents/rules/build_guard.md`. | 2026-11-22 |
 | **ADR-015** | **Deterministic Offline Vector Matching & Strict 0.65 Boundary Enforcement** | Built `EmbeddingService` with OpenAI `text-embedding-3-small` and deterministic mock vector fallback using word-boundary semantic clusters, paired with `VectorMatcherService` enforcing strict `< 0.65` zero-hallucination boundary and uncharted niche diagnostic. | 2026-11-22 |
+| **ADR-016** | **Client-Side Session Caching & Direct-URL Resilience for Verdict Workspace** | Implemented dual-layer persistence for Screen 5 (`/verdict/[id]`): prioritizes in-memory `sessionStorage` (`verelli_verdict_${id}`) to ensure zero-latency client transitions from Stage 1 Idea Input, seamlessly falls back to `GET /api/v1/verdict/{id}` on direct link opens, and provides structured sample fallbacks if the API backend is unreachable. | 2026-11-22 |
 
 ---
 

@@ -1,0 +1,17 @@
+{
+  "name": "verelli-phase4",
+  "display_name": "Verelli.lol Phase 4 Live Wiring & Verdict Bento Workflow",
+  "description": "Orchestrates 2 concurrent subagents: Subagent A (Frontend Screen 4-5 Wiring & Verdict Bento Workspace) and Subagent B (Backend Synthesis & Scrapers Pipeline).",
+  "version": "1.0.0",
+  "entrypoint": "workflow.py",
+  "args": {
+    "type": "object",
+    "properties": {
+      "mock_mode": {
+        "type": "boolean",
+        "default": true,
+        "description": "Enable resilient offline deterministic fallbacks"
+      }
+    }
+  }
+}
