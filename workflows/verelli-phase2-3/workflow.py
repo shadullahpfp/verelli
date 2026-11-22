@@ -52,34 +52,35 @@ DELIVERABLES:
 
 2. Screen 2: Things to Know Modal:
    - apps/web/components/modals/ThingsToKnowModal.tsx:
-     - Backdrop: #121210 / 80% backdrop-blur-md.
-     - Card: #252622, border 1px solid #3A3D34, 24px rounded corners.
+     - Backdrop: #121210 with backdrop-blur-md.
+     - Card: Centered matte charcoal card #252622, rounded-3xl, max-w-lg, border 1px solid #3A3D34.
      - Heading: Instrument Serif italic "Things to know before we begin".
-     - Transparency items with interactive olive-underlined links to Startups.RIP and TrustMRR.
-     - Buttons: "Exit" (ghost text, routes to /) and "Agree & continue" (#1B200E pill, text #C5D37A, border 1px solid #363E1D, routes to ?step=welcome).
+     - Transparency items with underlined olive-tinted links to Startups.RIP and TrustMRR data terms.
+     - Bottom-right actions: plain text "Exit" (ghost text, routes to /) and dark olive pill button "Agree & continue" (#1B200E with pale lime text #D8E29A, border 1px solid #363E1D, routes to ?step=welcome).
 
 3. Screen 3A: Stay Connected Popup:
    - apps/web/components/modals/StayConnectedModal.tsx:
-     - Minimalist newsletter/alerts overlay.
-     - Custom lime-accented checkboxes: "Weekly Graveyard Post-Mortem Deconstructs", "Verified Micro-SaaS Niche Revenue Alerts".
-     - Buttons: "Confirm" (#B8C468 pill with #14180A text) and "Skip for now" (ghost text).
+     - Renders as a centered modal overlay ON TOP of the 4-step grid (backdrop-blur-xs bg-black/50).
+     - 2 square pistachio-lime checkboxes (#B8C468): "Weekly Graveyard Post-Mortem Deconstructs", "Verified Micro-SaaS Niche Revenue Alerts".
+     - Bottom-right actions: "Skip for now" (ghost text) + pistachio pill button "Confirm" (#B8C468 with #14180A text).
 
 4. Screen 3B: 4-Step Onboarding Grid:
    - apps/web/components/onboarding/OnboardingFourGrid.tsx and apps/web/components/onboarding/StepCard.tsx:
-     - 4 horizontal cards (280px min-width, 440px height, #181916 surface, 1px solid #2E3029 border, 24px radius).
+     - Top-center small lime flask icon, italic Instrument Serif "Welcome to Verelli.lol", clean sans subtitle.
+     - 4 equal-height dark cards ("1" to "4", rounded-3xl, 1px solid #2E3029, surface #181916) with large subtle top-left step numbers.
      - Step 1: "Build your Idea Profile" — simulated input typing preview.
      - Step 2: "Scan the Startup Graveyard" — skull badge, burned capital, and post-mortem snippet.
      - Step 3: "Verify Live Niche MRR" — live Stripe MRR badge with subscriber count.
      - Step 4: "Create your Validation Book & 48h Plan" — circular gauge preview & checklist.
-     - Inset containers (#11120E, border 1px solid #23251F) with radial-gradient(circle, rgba(163, 184, 99, 0.22) 0%, rgba(17, 18, 14, 0) 70%).
-     - Bottom CTA: Pistachio-lime pill button "Let's go!" (#B8C468, text #14180A, routing to ?step=input).
+     - Inset bottom preview panels illuminated by soft radial olive glow (radial-gradient(circle, rgba(163, 184, 99, 0.22) 0%, rgba(17, 18, 14, 0) 70%)).
+     - Bottom center pistachio-lime pill button "Let's go!" (#B8C468, text #14180A, routing to ?step=input).
 
 5. Screen 4: Focused Idea Input Card:
    - apps/web/components/onboarding/IdeaInputCard.tsx:
-     - Centered card #23251F, border 1px solid #44473E, max-w-[680px], radius 24px, over ambient olive radial glow.
-     - Heading: Instrument Serif italic "Enter your startup idea".
-     - Recessed input field #161713, border 1px solid #363E1D, focus ring #B8C468.
-     - Dual buttons: Left "No website yet? Type raw idea" (#363E1D, text #C5D37A), Right "Continue" (#373835, text #E3E5DC).
+     - Centered rounded card (#23251F, 1px solid #44473E, rounded-3xl, max-w-[680px]) floating over a prominent soft olive-sage radial backdrop glow.
+     - Italic serif heading "Enter your startup idea".
+     - Dark outlined input box (rounded-xl border-[#5A5D52], bg-[#161713], focus ring #B8C468).
+     - 2 equal-width bottom pill buttons: left muted moss #363E1D ("No website yet?"), right matte charcoal #373835 ("Continue" — dynamically turns #B8C468 pistachio when input is non-empty).
 
 6. Integration:
    - Wire all modals into apps/web/app/page.tsx with React Suspense wrapping query-param components.
