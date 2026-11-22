@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --port 3000",
-    "build": "next build",
+    "build": "NEXT_DIST_DIR=.next_build next build",
+    "build:prod": "next build",
     "start": "next start",
     "lint": "next lint",
     "render:hero": "node scripts/render-hero-cards.mjs"
